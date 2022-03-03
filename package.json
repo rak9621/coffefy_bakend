@@ -263,5 +263,9 @@
   "bugs": {
     "url": "https://github.com/rak9621/coffeefy/issues"
   },
-  "homepage": "https://github.com/rak9621/coffeefy#readme"
+  "homepage": "https://github.com/rak9621/coffeefy#readme",
+  
+ "engines": { 
+   "node": "4.1.1" 
+ } 
 }
