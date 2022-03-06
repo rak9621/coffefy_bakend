@@ -1,8 +1,8 @@
-const expresss = require("express");
+const express = require("express");
 const cookiesParser = require("cookie-parser");
 const path = require("path");
 
-const app = expresss();
+const app = express();
 
 const errorMiddleware = require("./middleware/error");
 
@@ -11,15 +11,19 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "backend/config/config.env" });
 }
 
-app.use(expresss.json());
+app.use(express.json());
 app.use(cookiesParser());
 //Route export
 
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
+const cors = require('cors')
 
 app.use("/api/v1", product);
 app.use("/api/v1", user);
+
+
+app.use(cors())
 
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 

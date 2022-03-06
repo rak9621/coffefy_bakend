@@ -28,7 +28,6 @@ const userSchema = new mongoose.Schema({
   avatar: {
     public_id: {
       type: String,
-      required: true,
     }, //image host in cloud navi
     url: {
       type: String,

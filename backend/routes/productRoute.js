@@ -11,7 +11,8 @@ const {
 } = require("../controller/productController");
 const { isAuthenticatedUser } = require("../middleware/auth");
 
-router.route("/products").get(isAuthenticatedUser, getAllProducts);
+//router.route("/products").get(isAuthenticatedUser, getAllProducts);
+router.route("/products").get(getAllProducts);
 
 router.route("/products/new").post(isAuthenticatedUser, createProducts);
 
