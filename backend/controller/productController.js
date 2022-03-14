@@ -12,7 +12,7 @@ exports.getAllProducts = async (req, res) => {
 };
 
 //product detail
-
+  
 exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 

@@ -1,3 +1,4 @@
+const cors = require('cors')
 const express = require("express");
 const cookiesParser = require("cookie-parser");
 const path = require("path");
@@ -13,14 +14,17 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 app.use(express.json());
 app.use(cookiesParser());
-//Route export
 
+//Route export
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
-const cors = require('cors')
+const cart = require("./routes/cartRoute")
+
 
 app.use("/api/v1", product);
 app.use("/api/v1", user);
+app.use("/api/v1" , cart)
+
 
 
 app.use(cors())
