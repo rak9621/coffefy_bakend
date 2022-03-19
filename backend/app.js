@@ -31,9 +31,9 @@ app.use(cors())
 
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../frontend/build/index.js"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../frontend/build/index.js"));
+// });
 
 //middleware for error
 app.use(errorMiddleware);
