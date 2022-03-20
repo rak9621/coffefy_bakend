@@ -5,23 +5,15 @@ dotenv.config({ path: "backend/.env" });
 const conn = require("./db/conn");
 
 // Handling Uncaught Exception
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+app.use(cors())
 
-const corsOpts = {
-  origin: '*',
-
-  methods: [
-    'GET',
-    'POST',
-    'PATCH',
-    'DELETE'
-  ],
-
-  allowedHeaders: [
-    'Content-Type',
-  ],
-};
-
-app.use(cors(corsOpts));
 
 process.on("uncaughtException", (err) => {
   console.log(`Error : ${err.message}`);
