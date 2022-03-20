@@ -1,17 +1,11 @@
 const app = require("./app");
-const cors = require('cors')
 const dotenv = require("dotenv");
 dotenv.config({ path: "backend/.env" });
 const conn = require("./db/conn");
 
-app.use(cors())
 
-app.use((req,res,next)=>{
-    res.setHeader('Acces-Control-Allow-Origin','*');
-    res.setHeader('Acces-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
-    res.setHeader('Acces-Contorl-Allow-Methods','Content-Type','Authorization');
-    next(); 
-})
+
+
 
 
 process.on("uncaughtException", (err) => {
