@@ -6,9 +6,13 @@ const conn = require("./db/conn");
 
 app.use(cors())
 
-app.get('/product', function (req, res, next) {
-  res.send("cors enable ")
+app.use((req,res,next)=>{
+    res.setHeader('Acces-Control-Allow-Origin','*');
+    res.setHeader('Acces-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Acces-Contorl-Allow-Methods','Content-Type','Authorization');
+    next(); 
 })
+
 
 process.on("uncaughtException", (err) => {
   console.log(`Error : ${err.message}`);
