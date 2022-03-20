@@ -6,7 +6,12 @@ const conn = require("./db/conn");
 
 // Handling Uncaught Exception
 
-app.use(cors())
+// app.use(cors())
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 process.on("uncaughtException", (err) => {
   console.log(`Error : ${err.message}`);
