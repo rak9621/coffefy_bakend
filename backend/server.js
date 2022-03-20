@@ -1,12 +1,12 @@
 const app = require("./app");
-var cors = require('cors')
+const cors = require('cors')
 const dotenv = require("dotenv");
 dotenv.config({ path: "backend/.env" });
 const conn = require("./db/conn");
 
 app.use(cors())
 
-app.get('/product/:id', function (req, res, next) {
+app.get('/product', function (req, res, next) {
   res.json({msg: 'This is CORS-enabled for all origins!'})
 })
 
