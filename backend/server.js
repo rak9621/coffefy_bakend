@@ -1,19 +1,14 @@
 const app = require("./app");
-const cors = require('cors')
+var cors = require('cors')
 const dotenv = require("dotenv");
 dotenv.config({ path: "backend/.env" });
 const conn = require("./db/conn");
 
-// Handling Uncaught Exception
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
 app.use(cors())
 
+app.get('/product/:id', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
 
 process.on("uncaughtException", (err) => {
   console.log(`Error : ${err.message}`);
