@@ -4,6 +4,7 @@ const cookiesParser = require("cookie-parser");
 const path = require("path");
 
 const app = express();
+app.use(cors())
 
 const errorMiddleware = require("./middleware/error");
 
@@ -14,17 +15,10 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 app.use(express.json());
 app.use(cookiesParser());
-app.use(cors())
 
 
- app.use(function (req, res, next) {
-    //Enabling CORS
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, 
-    Accept, x-client-key, x-client-token, x-client-secret, Authorization");
-      next();
-    });
+
+
 
 
 //Route export
