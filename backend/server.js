@@ -7,7 +7,7 @@ const conn = require("./db/conn");
 app.use(cors())
 
 app.get('/product', function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
+  res.send("cors enable ")
 })
 
 process.on("uncaughtException", (err) => {
