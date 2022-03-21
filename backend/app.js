@@ -1,8 +1,26 @@
 const express = require("express");
+const cors = require('cors')
 const cookiesParser = require("cookie-parser");
 const path = require("path");
+const moesif = require('moesif-nodejs');
 
 const app = express();
+app.use(cors())
+
+const moesifMiddleware = moesif({
+  applicationId: 'eyJhcHAiOiIxMDkxOjE4MiIsInZlciI6IjIuMCIsIm9yZyI6IjI2Mjo3NDIiLCJpYXQiOjE2NDYwOTI4MDB9.-PXutJTH5eKOWGHbuFt5mKOXDeVj2DiwQoBYf236z84',
+
+
+  identifyUser: function (req, res) {
+    return req.user ? req.user.id : undefined;
+  },
+});
+
+
+app.use(moesifMiddleware);
+
+
+
 
 app.use(express.json());
 app.use(cookiesParser());
