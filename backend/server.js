@@ -4,13 +4,13 @@ const cors = require('cors')
 dotenv.config({ path: "backend/.env" });
 const conn = require("./db/conn");
 
-app.use(cors())
-
-app.all('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
- });
+});
 
 process.on("uncaughtException", (err) => {
   console.log(`Error : ${err.message}`);
