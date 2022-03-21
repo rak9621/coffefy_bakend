@@ -1,12 +1,10 @@
 const app = require("./app");
 const dotenv = require("dotenv");
+const cors = require('cors')
 dotenv.config({ path: "backend/.env" });
 const conn = require("./db/conn");
 
-
-
-
-
+app.use(cors())
 
 process.on("uncaughtException", (err) => {
   console.log(`Error : ${err.message}`);
