@@ -146,6 +146,7 @@
     "minipass": "^3.1.6",
     "minizlib": "^2.1.2",
     "mkdirp": "^1.0.4",
+    "moesif-nodejs": "^3.1.19",
     "mongodb": "^4.2.2",
     "mongodb-connection-string-url": "^2.4.1",
     "mongoose": "^6.1.7",
@@ -253,7 +254,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
     "dev": "node backend/server.js"
-    
   },
   "repository": {
     "type": "git",
