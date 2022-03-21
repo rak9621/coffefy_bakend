@@ -6,6 +6,12 @@ const conn = require("./db/conn");
 
 app.use(cors())
 
+app.all('/', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+ });
+
 process.on("uncaughtException", (err) => {
   console.log(`Error : ${err.message}`);
   console.log("shutting down server due to uncaughtException");
