@@ -8,9 +8,9 @@ const app = express();
 app.use(cors())
 
 const moesifMiddleware = moesif({
-  applicationId: 'eyJhcHAiOiIxMDkxOjE4MiIsInZlciI6IjIuMCIsIm9yZyI6IjI2Mjo3NDIiLCJpYXQiOjE2NDYwOTI4MDB9.-PXutJTH5eKOWGHbuFt5mKOXDeVj2DiwQoBYf236z84',
+  applicationId: 'eyJhcHAiOiIxMDkxOjE4MiIsInZlciI6IjIuMCIsIm9yZyI6IjI2Mjo3NDIiLCJpYXQiOjE2NTEzNjMyMDB9.olM3XQAbNECBQ0YmIrhMDK-HRoJJvAKfM2ivpyJX4UY',
 
-
+  // Optional hook to link API calls to users
   identifyUser: function (req, res) {
     return req.user ? req.user.id : undefined;
   },
