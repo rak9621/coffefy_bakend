@@ -11,11 +11,14 @@ const moesifMiddleware = moesif({
   applicationId: 'eyJhcHAiOiIxMDkxOjE4MiIsInZlciI6IjIuMCIsIm9yZyI6IjI2Mjo3NDIiLCJpYXQiOjE2NTEzNjMyMDB9.olM3XQAbNECBQ0YmIrhMDK-HRoJJvAKfM2ivpyJX4UY',
 
   // Optional hook to link API calls to users
-  identifyUser: function (req, res) {
-    return req.user ? req.user.id : undefined;
-  },
-});
 
+  identifyUser: function (req, res) {
+         
+       return req.user ? req.user.id : undefined;
+  },
+
+});
+  
 
 app.use(moesifMiddleware);
 

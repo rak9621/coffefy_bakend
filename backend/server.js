@@ -2,7 +2,7 @@ const app = require("./app");
 const dotenv = require("dotenv");
 dotenv.config({ path: "backend/.env" });
 const conn = require("./db/conn");
-
+  
 
 process.on("uncaughtException", (err) => {
   console.log(`Error : ${err.message}`);
