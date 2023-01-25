@@ -2,7 +2,7 @@
   "name": "coffeefy",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "/backend/server.js",
   "dependencies": {
     "abbrev": "^1.1.1",
     "accepts": "^1.3.7",
@@ -253,7 +253,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
-    "dev": "node backend/server.js"
+    "dev": "nodemon backend/server.js"
   },
   "repository": {
     "type": "git",

@@ -2,33 +2,29 @@ const express = require("express");
 const cors = require('cors')
 const cookiesParser = require("cookie-parser");
 const path = require("path");
-const moesif = require('moesif-nodejs');
+
 
 const app = express();
-app.use(cors())
-
-const moesifMiddleware = moesif({
-  applicationId: 'eyJhcHAiOiIxMDkxOjE4MiIsInZlciI6IjIuMCIsIm9yZyI6IjI2Mjo3NDIiLCJpYXQiOjE2NTEzNjMyMDB9.olM3XQAbNECBQ0YmIrhMDK-HRoJJvAKfM2ivpyJX4UY',
-
-  // Optional hook to link API calls to users
-
-  identifyUser: function (req, res) {
-         
-       return req.user ? req.user.id : undefined;
-  },
-
-});
-
-//rak
-  
-
-app.use(moesifMiddleware);
-
-
 
 
 app.use(express.json());
+
 app.use(cookiesParser());
+
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts))
 
 
 
@@ -59,11 +55,7 @@ app.get('/' , (req, res) => {
 
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../frontend/build/index.js"));
-// });
 
-//middleware for error
 app.use(errorMiddleware);
 
 module.exports = app;
